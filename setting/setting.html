@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .settings-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    .settings-header {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .setting-item {
+      margin-bottom: 20px;
+    }
+    .setting-label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .setting-input, .setting-select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .toggle-switch input {
+      display: none;
+    }
+    .slider {
+      position: relative;
+      width: 40px;
+      height: 20px;
+      background-color: #ccc;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .slider::before {
+      content: '';
+      position: absolute;
+      height: 16px;
+      width: 16px;
+      background-color: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+    }
+    input:checked + .slider {
+      background-color: #4caf50;
+    }
+    input:checked + .slider::before {
+      transform: translateX(20px);
+    }
+    .save-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .save-button:hover {
+      background-color: #3700b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="settings-container">
+    <div class="settings-header">Settings</div>
+
+    <div class="setting-item">
+      <label class="setting-label" for="username">Username</label>
+      <input type="text" id="username" class="setting-input" placeholder="Enter your username">
+    </div>
+
+    <div class="setting-item">
+      <label class="setting-label" for="language">Language</label>
+      <select id="language" class="setting-select">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+      </select>
+    </div>
+
+    <div class="setting-item toggle-switch">
+      <span>Enable Notifications</span>
+      <label>
+        <input type="checkbox" id="notifications">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <button class="save-button" onclick="saveSettings()">Save Changes</button>
+  </div>
+
+  <script>
+    function saveSettings() {
+      const username = document.getElementById('username').value;
+      const language = document.getElementById('language').value;
+      const notifications = document.getElementById('notifications').checked;
+
+      alert(
+        `Settings Saved:\nUsername: ${username}\nLanguage: ${language}\nNotifications: ${notifications ? 'Enabled' : 'Disabled'}`
+      );
+    }
+  </script>
+</body>
+</html>
+
+    
+
